@@ -20,5 +20,6 @@ window.onload = function() {
 			e.preventDefault();
 		};
 	});
-	window.onpopstate = updateState;
+	//window.onpopstate = updateState;
 };
+window.addEventListener("popstate", updateState);
