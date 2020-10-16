@@ -6,7 +6,7 @@ function selectEls(query) {
 }
 function updateState(e) {
 	var state = e.state;
-	alert(state);
+	alert("State: " + state);
 }
 function changeState(id, page) {
 	history.pushState({ pageId: id }, "Page | Rowsej's Website", page);
@@ -14,7 +14,9 @@ function changeState(id, page) {
 window.onload = function() {
 	selectEls("a button").forEach(btn => {
 		btn.onclick = function(e) {
-			alert(e.target.innerHTML);
+			alert("Clicked: " + e.target.innerHTML);
+			var page = btn.parentNode.href;
+			changeState(page.replace(".html", ""), page);
 			e.preventDefault();
 		};
 	});
