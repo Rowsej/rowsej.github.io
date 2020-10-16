@@ -15,7 +15,8 @@ window.onload = function() {
 	selectEls("a button").forEach(btn => {
 		btn.onclick = function(e) {
 			alert(e.target.innerHTML);
-		}
+			e.preventDefault();
+		};
 	});
 	window.onpopstate = updateState;
 };
