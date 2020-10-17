@@ -5,6 +5,7 @@ function selectEls(query) {
 	return document.querySelectorAll(query);
 }
 function updateState(e) {
+	alert("State changed");
 	var state = e.state;
 	alert("State: " + state);
 }
@@ -20,6 +21,6 @@ window.onload = function() {
 			e.preventDefault();
 		};
 	});
-	//window.onpopstate = updateState;
+	window.onpopstate = updateState;
 };
 window.addEventListener("popstate", updateState);
