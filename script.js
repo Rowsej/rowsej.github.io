@@ -1,3 +1,4 @@
+window.onerror = (e) => alert(e);
 function selectEl(query) {
 	return document.querySelector(query);
 }
@@ -23,6 +24,11 @@ window.onload = () => {
 			e.preventDefault();
 		};
 	});
-	window.onpopstate = updateState;
+	//window.onpopstate = updateState;
+	window.addEventListener("popstate", e => {
+		alert("Changed state");
+		alert("me debugging this code, me be smhing");
+		alert(e);
+	});
 };
 window.addEventListener("popstate", updateState);
