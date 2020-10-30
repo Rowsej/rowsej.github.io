@@ -7,7 +7,7 @@ function selectEls(query) {
 }
 function updateState(e) {
 	var state = e.state;
-	selectEl("#main").innerHTML = "State: " + state;
+	selectEl("#main").innerHTML = "State: " + JSON.stringify(state);
 }
 function changeState(id, page) {
 	history.pushState({ pageId: id }, "Page | Rowsej's Website", page);
