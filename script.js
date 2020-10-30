@@ -7,19 +7,20 @@ function selectEls(query) {
 }
 function updateState(e) {
 	var state = e.state;
-	selectEl("#main").innerHTML = "State: " + JSON.stringify(state);
+	selectEl("#main").innerHTML = "Page: " + state.pageId;
 }
 function changeState(id, page) {
-	history.pushState({ pageId: id }, "Page | Rowsej's Website", page);
+	var state = { pageId: id };
+	history.pushState(state, "Page | Rowsej's Website", page);
 	document.title = "Page | Rowsej's Website";
-	alert("Changed state!");
+	updateState({ state: state });
 }
 window.onload = () => {
 	selectEls("a button").forEach(btn => {
 		btn.onclick = function(e) {
 			var page = btn.parentNode.href;
 			alert("Clicked: " + page);
-			changeState(page.replace(".html", ""), page);
+			changeState(page, page);
 			e.preventDefault();
 		};
 	});
