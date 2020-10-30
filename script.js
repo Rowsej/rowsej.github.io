@@ -6,10 +6,7 @@ function selectEls(query) {
 	return document.querySelectorAll(query);
 }
 function updateState(e) {
-	alert("State changed");
-	var state = e.state;
-	alert("State: " + state);
-	selectEl("#main").innerHTML = state;
+	selectEl("#main").innerHTML = "State: " + state;
 }
 function changeState(id, page) {
 	history.pushState({ pageId: id }, "Page | Rowsej's Website", page);
@@ -26,10 +23,5 @@ window.onload = () => {
 		};
 	});
 	//window.onpopstate = updateState;
-	window.addEventListener("popstate", e => {
-		alert("Changed state");
-		alert("me debugging this code, me be smhing");
-		alert(e);
-	});
 };
 window.addEventListener("popstate", updateState);
