@@ -9,6 +9,7 @@ function updateState(e) {
 	alert("State changed");
 	var state = e.state;
 	alert("State: " + state);
+	selectEl("#main").innerHTML = state;
 }
 function changeState(id, page) {
 	history.pushState({ pageId: id }, "Page | Rowsej's Website", page);
