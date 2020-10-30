@@ -6,6 +6,7 @@ function selectEls(query) {
 	return document.querySelectorAll(query);
 }
 function updateState(e) {
+	var state = e.state;
 	selectEl("#main").innerHTML = "State: " + state;
 }
 function changeState(id, page) {
