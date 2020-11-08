@@ -12,7 +12,7 @@ function updateState(e) {
 function changeState(id, title, page) {
 	var state = { pageId: id };
 	history.pushState(state, `${title} | Rowsej's Website`, page);
-	document.title = "Page | Rowsej's Website";
+	document.title = `${title} | Rowsej's Website`;
 	updateState({ state: state });
 }
 window.onload = () => {
