@@ -19,7 +19,7 @@ window.onload = () => {
 	changeState("/home", "Home", "");
 	selectEls("a button").forEach(btn => {
 		btn.onclick = function(e) {
-			var page = btn.parentNode.dataset.pageId;
+			var page = btn.parentNode.dataset.page_id;
 			var title = btn.innerHTML;
 			alert("Clicked: " + page);
 			changeState(page, title, page);
