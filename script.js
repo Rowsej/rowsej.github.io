@@ -9,18 +9,20 @@ function updateState(e) {
 	var state = e.state;
 	selectEl("#main").innerHTML = "Page: " + state.pageId;
 }
-function changeState(id, page) {
+function changeState(id, title, page) {
 	var state = { pageId: id };
-	history.pushState(state, "Page | Rowsej's Website", page);
+	history.pushState(state, $`{title} | Rowsej's Website`, page);
 	document.title = "Page | Rowsej's Website";
 	updateState({ state: state });
 }
 window.onload = () => {
+	changeState("/home", "Home", "");
 	selectEls("a button").forEach(btn => {
 		btn.onclick = function(e) {
-			var page = btn.parentNode.href;
+			var page = btn.parentNode.href.split(".")[0];
+			var title = btn.innerHTML;
 			alert("Clicked: " + page);
-			changeState(page, page);
+			changeState(page, title, page);
 			e.preventDefault();
 		};
 	});
